@@ -25,6 +25,7 @@ import com.qualcomm.robotcore.hardware.I2cDeviceSynchImpl;
 import com.qualcomm.robotcore.hardware.TouchSensor;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
+import org.firstinspires.ftc.teamcode.base.fourwheelHardware;
 
 
 //import com.qualcomm.robotcore.eventloop.opmode.OpMode;
@@ -39,6 +40,8 @@ import com.qualcomm.robotcore.util.ElapsedTime;
 
 public class MRI_Color_Sensor extends OpMode
 {
+
+    fourwheelHardware robot = new fourwheelHardware();
 
     /* Declare OpMode members. */
     private ElapsedTime runtime = new ElapsedTime();
@@ -59,6 +62,8 @@ public class MRI_Color_Sensor extends OpMode
     @Override
     public void init() {
         telemetry.addData("Status", "Initialized");
+
+        robot.init(hardwareMap);
 
         //the below lines set up the configuration file
 //        colorC = hardwareMap.i2cDevice.get("cc");

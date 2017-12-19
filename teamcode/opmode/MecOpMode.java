@@ -24,6 +24,8 @@ public class MecOpMode extends LinearOpMode
         private DcMotor DRIVE_BACK_RIGHT;
         private DcMotor DRIVE_BACK_LEFT;
 
+        private DcMotor liftArm;
+
 //        private final double BACK_WHEEL_REDUCE = 0.25;
         private final double BACK_WHEEL_REDUCE = 0.3;
 
@@ -125,6 +127,12 @@ public class MecOpMode extends LinearOpMode
                     armServo.setPosition(ARM_EXTENDED_POSITION);
                     telemetry.addLine("B button pressed");
                 }
+        /*
+                Lift Arm using gamepad 2 right stick y
+         */
+                double liftarm_stick_y = -gamepad2.right_stick_y;
+                liftArm.setPower(liftarm_stick_y);
+                telemetry.addData("Lift Arm power:", "%.3f",liftarm_stick_y);
                 telemetry.update();
 
 //                jewelArm.setPosition(JEWEL_ARM_EXTENDED_POSITION);
